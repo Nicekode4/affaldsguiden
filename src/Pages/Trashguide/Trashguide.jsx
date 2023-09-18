@@ -25,19 +25,21 @@ function Trashguide() {
   return (
     <TrashguideStyle>
         <h1><span>Din guide</span> til en sund affaldsortering</h1>
-        <section>
-            <input type="search" name="" id="" />
+        <section className='searchSec'>
+            <input type="search" name="search" id="search" placeholder='Søg på affald'/>
             <button>Search</button>
         </section>
 
         <section className='categorySec'>
             {
                 categories.map((category,index) =>(
-                            <TrashCard color={category.color} title={category.title} img={category.filename}/>
+                            <TrashCard color={'#' + category.color} title={category.title} img={category.filename}/>
                 ))
             }
 
         </section>
+
+
     </TrashguideStyle>
   )
 }
