@@ -74,9 +74,9 @@ function Navbar() {
             </button>
                <ul id='navElements'>
                     <li><NavLink to={'/'}>Forside</NavLink></li>
-                    <li><NavLink to={'/login'}>Login</NavLink></li>
-                    <li><NavLink to={'/review'}>Review</NavLink></li>
-                    <li><NavLink to={'/ticket'}>Billetter</NavLink></li>
+                    <li><NavLink to={'/sortering'}>Sotering</NavLink></li>
+                    <li><NavLink to={'/review'}>Genbrugsstationer</NavLink></li>
+                    <li><NavLink to={'/ticket'}>Bestil beholder</NavLink></li>
                     <li>Item 5</li>
                 </ul>
             </nav>
