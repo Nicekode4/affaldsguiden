@@ -5,7 +5,11 @@ import Navbar from '../Navbar/Navbar'
 function Header() {
   return (
     <HeaderStyle>
-      <img src="" alt="Logo" />
+      <div>
+           <img src={require('../../Images/logo.png')} alt="Logo" />  
+           <p>Affaldsguiden</p> 
+      </div>
+
       <Navbar />
     </HeaderStyle>
   )

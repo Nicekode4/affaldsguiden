@@ -4,19 +4,21 @@ import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
 
 export const NavbarStyle = styled.div`
+
+
 button{
-    margin: 0;
-    width: 15vw;
+    margin-left: 45%;
+    width: 10vw;
     background-color: #ffffff00;
     border: none;
-    display: block;
     hr{
         height: 0.5vh;
         background-color: black;
     }
 }
 .active{
-    color: red;
+    color: #6DA830;
+    border-top: 1px solid #6DA830;
 }
 nav{
     width: 100%;
@@ -29,7 +31,7 @@ nav{
             margin-top: 1vh;
             a{
                 text-decoration: none;
-                color: black;
+                color: #232F44;
             }
         }
     }
@@ -63,15 +65,14 @@ function Navbar() {
   return (
     <NavbarStyle>
              
-            
-            <>
-            <button onClick={() => document.getElementById('navbar').style.display === 'none' ?  document.getElementById('navbar').style.display = 'block' : document.getElementById('navbar').style.display = 'none'}>
+
+            <nav>            
+            <button onClick={() => document.getElementById('navElements').style.display === 'none' ?  document.getElementById('navElements').style.display = 'block' : document.getElementById('navElements').style.display = 'none'}>
                 <hr />
                 <hr />
                 <hr />
             </button>
-            <nav id='navbar' >
-               <ul>
+               <ul id='navElements'>
                     <li><NavLink to={'/'}>Forside</NavLink></li>
                     <li><NavLink to={'/login'}>Login</NavLink></li>
                     <li><NavLink to={'/review'}>Review</NavLink></li>
@@ -79,7 +80,6 @@ function Navbar() {
                     <li>Item 5</li>
                 </ul>
             </nav>
-            </> 
             
             
     </NavbarStyle>
