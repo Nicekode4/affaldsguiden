@@ -7,12 +7,14 @@ export const NavbarStyle = styled.div`
 
 
 button{
+    margin-bottom: 2vh;
     margin-left: 45%;
     width: 10vw;
     background-color: #ffffff00;
     border: none;
     hr{
-        height: 0.5vh;
+        margin: 0.1vh 0vw;
+        height: 1vh;
         background-color: black;
     }
 }

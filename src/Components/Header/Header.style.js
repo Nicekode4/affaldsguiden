@@ -5,11 +5,16 @@ border-bottom: 1px solid black;
 height: auto;
 display: grid;
 grid-template-columns: 1fr;
+gap: 2vh;
 div{
+    p{
+        display: none;
+    }
     display: flex;
+    justify-content: center;
  img{
     padding: 1vh 2vw;
-    height: 75%;
+    height: 10vh;
 }
 
 p{
