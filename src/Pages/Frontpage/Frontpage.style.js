@@ -36,6 +36,24 @@ button{
 
 .textSec{
     text-align: center;
+    strong {
+      position: relative;
+  }
+
+  strong::before {
+      /* Highlight color */
+      background-color: #62BB65;
+      opacity: 50%;
+
+      content: "";
+      position: absolute;
+      width: calc(100% + 4px);
+      height: 20%;
+      left: -2px;
+      bottom: 8px;
+      z-index: -1;
+  }
+  
    h2{
     color: #222A41;
     margin-bottom: 2vh;
