@@ -93,7 +93,7 @@ function Navbar() {
                     <li><NavLink to={'/'}>Forside</NavLink></li>
                     <li><NavLink to={'/sortering'}>Sotering</NavLink></li>
                     <li><NavLink to={'/stations'}>Genbrugsstationer</NavLink></li>
-                    <li><NavLink to={'/ticket'}>Bestil beholder</NavLink></li>
+                    <li><NavLink to={'/order'}>Bestil beholder</NavLink></li>
                     <li className='login' ><NavLink to={'/login'}> <img src={loggedIn} alt="Lock" /></NavLink></li>
                 </ul>
             </nav>

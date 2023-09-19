@@ -3,7 +3,7 @@ import { StationDetailsStyle } from './StationDetails.style'
 import starGrey from '../../Images/Layout/icon-magic-star.svg'
 import starGold from '../../Images/Layout/icon-magic-star-gold.svg'
 import supabase from '../../supabase.js'
-import Review from '../Review/Review'
+import Review from '../../Components/Review/Review'
 
 function StationDetails({data}) {
     console.log(data);
