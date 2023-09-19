@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { LoginStyle } from './Login.style'
 import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
+import logo from '../../Images/Layout/logo.svg'
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -63,17 +64,30 @@ console.log(user);
 console.log(JSON.parse(sessionStorage.getItem('user')) || 'No user in sessionstorage')
   return (
     <LoginStyle>
-            {!loggedIn ? <form onSubmit={handleSubmit(submitForm)}>
-              <label htmlFor="username">Brugernavn</label>
-              <input type="text" name="username" id='username' {...register('username', {required: true})}/>
+            {!loggedIn ? <>
+            
+              <div>
+           <img src={logo} alt="Logo" />  
+           <p>Affaldsguiden</p> 
+      </div>
+      <p>Log ind på Affaldsguiden
+for at anmelde stationer</p>
+            
+            <form onSubmit={handleSubmit(submitForm)}>
+              <h1>Log ind</h1>
+              <label  htmlFor="username">Brugernavn</label>
+              <input type="text" name="username" id='username' placeholder='Email' {...register('username', {required: true})}/>
               <label htmlFor="password">Kodeord</label>
-              <input type="password" id='password' name="password" {...register('password', {required: true})} />
+              <input type="password" id='password' name="password" placeholder='Password' {...register('password', {required: true})} />
               {errors.username && <span>Brugernavn skal udfyldes!</span>}
               {errors.password && <span>Kodeord skal udfyldes!</span>}
               {<span style={{display: 'none'}} id='loginError'>Kodeord og Brugernavn findes ikke eller er forkert</span>}
               {<span style={{display: 'none'}} id='banned'>Din konto er bandlyst!</span>}
               <button type='submit'>Login</button>
-            </form> : <><p>Logged in as {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p><button onClick={() => signOut()}>Log ud</button></>}
+            </form> 
+            </>
+            : 
+            <><p>Logged in as {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p><button onClick={() => signOut()}>Log ud</button></>}
     </LoginStyle>
   )
 }
