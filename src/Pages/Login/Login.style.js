@@ -5,6 +5,10 @@ margin: 2vh 2vw;
 display: grid;
 grid-template-columns: repeat(1, 1fr);
 justify-items: center;
+span{
+    display: block;
+    text-align: center;
+}
 p{
     text-align: center;
 }
