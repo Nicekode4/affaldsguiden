@@ -14,6 +14,8 @@ function Order() {
     const { register, handleSubmit, formState: { errors } } = useForm() 
     const [progress, setProgress] = useState(1)
     const [isNotChecked, setIsNotChecked] = useState(true)
+    
+
 
     async function orderContainer(container_id,fullname,address,zipcode,city,email,phone) {
         
@@ -50,49 +52,45 @@ if (error) {
                 <img src={progress === 1 ? one : two} alt="" />
             </section>
             <form onSubmit={handleSubmit(submitForm)}>
-            {progress === 1 ? <section className='formSecOne'>
+            <section style={{display: `${progress === 1 ? 'block' : 'none'}`}} className='formSecOne'>
                 <p className='progressP'>Trin 1</p>
                 <p className='title'>Vælg type</p>
                 <p className='text'>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
 
                 <article className='choiceArt'>
                     <div onClick={() => {
-                        setIsNotChecked(false)
-                        document.getElementById('option1').checked = true}} className='option'>
-                        <input type="radio" name="option" id="option1" value={2} {...register('option' ,{required: true})} />
+                        setIsNotChecked(false)}} className='option'>
+                        <input type="radio" checked={!isNotChecked}  name="option" id="option1" value={2} {...register('option' ,{required: true})} />
                         <img src={papPapir} alt="icon" />
                         <p>Pap og papir</p>
                     </div>
                     <div onClick={() => {
-                        setIsNotChecked(false)
-                        document.getElementById('option2').checked = true}} className='option'>
-                    <input type="radio" name="option" id="option2" value={3} {...register('option' ,{required: true})} />
+                        setIsNotChecked(false)}} className='option'>
+                    <input type="radio" checked={!isNotChecked} name="option" id="option2" value={3} {...register('option' ,{required: true})} />
                         <img src={plast} alt="icon" />
                         <p>Plast og metal</p>
                     </div>
 
                     <div onClick={() => {
-                        setIsNotChecked(false)
-                        document.getElementById('option3').checked = true}} className='option'>
-                    <input type="radio" name="option" id="option3" value={1} {...register('option' ,{required: true})} />
+                        setIsNotChecked(false)}} className='option'>
+                    <input type="radio" checked={!isNotChecked} name="option" id="option3" value={1} {...register('option' ,{required: true})} />
                         <img src={madaffald} alt="icon" />
                         <p>Mad og rest</p>
                     </div>
 
                     <div onClick={() => {
-                        setIsNotChecked(false)
-                        document.getElementById('option4').checked = true}} className='option'>
-                    <input type="radio" name="option" id="option4" value={4} {...register('option' ,{required: true})} />
+                        setIsNotChecked(false)}} className='option'>
+                    <input type="radio" checked={!isNotChecked} name="option" id="option4" value={4} {...register('option' ,{required: true})} />
                         <img src={farligt} alt="icon" />
                         <p>Farligt</p>
                     </div>
 
                 </article>
                 {errors.option && <span>Du skal vælge en</span>}
-                <button     disabled={isNotChecked} onClick={() => setProgress(2)}>Videre</button>
-            </section> : null}
+                <button disabled={isNotChecked} onClick={() => setProgress(2)}>Videre</button>
+            </section>
             
-            { progress === 2 ? <section className='formSecTwo'>
+             <section style={{display: `${progress === 2 ? 'block' : 'none'}`}} className='formSecTwo'>
                 <p className='progressP'>Trin 2</p>
                 <p className='title'>Hvor skal den leveres?</p>
                 <p className='text'>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
@@ -128,11 +126,11 @@ if (error) {
                         <button type="submit">Send</button>
                         <button onClick={() => setProgress(1)}>Tilbage</button>                        
                     
-            </section> : null}
+            </section>
 
-            {progress === 3 ? <section className='endSec'>
+            <section style={{display: `${progress === 3 ? 'block' : 'none'}`}} className='endSec'>
                 <h2>Tak for din bestilling!</h2>
-            </section> : null}
+            </section>
             </form>
     </OrderStyle>
 
