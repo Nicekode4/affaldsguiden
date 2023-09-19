@@ -87,7 +87,7 @@ for at anmelde stationer</p>
             </form> 
             </>
             : 
-            <><p>Logged in as {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p><button onClick={() => signOut()}>Log ud</button></>}
+            <><p>Du er logged ind som {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p> <button style={{marginLeft: '-1%'}} onClick={() => signOut()}>Log ud</button></>}
     </LoginStyle>
   )
 }

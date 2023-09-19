@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
-
+import loggedIn from '../../Images/Layout/icon-unlock.svg'
 import styled from "styled-components";
 
 export const NavbarStyle = styled.div`
@@ -39,6 +39,21 @@ nav{
     }
 }
 
+.login{
+    margin: 5vh 45%;
+    height: 8vh;
+    width: fit-content;
+    border-radius: 50px;
+    background-color: #D8EADB;
+    a{
+        border: none;
+          img{
+        width: auto;
+        height: 5vh;
+    }  
+    }
+
+}
 
 /* Media query for desktop screens */
 @media screen and (min-width: 768px) {
@@ -79,7 +94,7 @@ function Navbar() {
                     <li><NavLink to={'/sortering'}>Sotering</NavLink></li>
                     <li><NavLink to={'/stations'}>Genbrugsstationer</NavLink></li>
                     <li><NavLink to={'/ticket'}>Bestil beholder</NavLink></li>
-                    <li><NavLink to={'/login'}>login</NavLink></li>
+                    <li className='login' ><NavLink to={'/login'}> <img src={loggedIn} alt="Lock" /></NavLink></li>
                 </ul>
             </nav>
             
