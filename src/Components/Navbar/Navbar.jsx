@@ -79,7 +79,7 @@ function Navbar() {
                     <li><NavLink to={'/sortering'}>Sotering</NavLink></li>
                     <li><NavLink to={'/stations'}>Genbrugsstationer</NavLink></li>
                     <li><NavLink to={'/ticket'}>Bestil beholder</NavLink></li>
-                    <li>Item 5</li>
+                    <li><NavLink to={'/login'}>login</NavLink></li>
                 </ul>
             </nav>
             
