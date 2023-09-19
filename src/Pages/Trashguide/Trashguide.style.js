@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const TrashguideStyle = styled.section`
+margin: 0vh 3vw;
 h1{
     font-size: 30px;
     color: #0E4F2D;
@@ -28,6 +29,22 @@ margin-left: 10%;
 
     button{
         border: none;
+    }
+}
+
+.titleArt{
+    display: grid;
+    grid-template-columns: 75% 30%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    h2{
+        color: white;
+        padding: 5vh 7vw;
+    }
+
+    img{
+        height: 15vh;
+    width: auto;
     }
 }
 `
