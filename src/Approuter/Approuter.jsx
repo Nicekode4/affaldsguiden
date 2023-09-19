@@ -6,6 +6,7 @@ import Review from '../Pages/Review/Review'
 import Ticket from '../Pages/Ticket/Ticket'
 import Trashguide from '../Pages/Trashguide/Trashguide'
 import Stations from '../Pages/Stations/Stations'
+import NotFound from '../Pages/NotFound/NotFound'
 
 function Approuter() {
   return (
@@ -14,6 +15,7 @@ function Approuter() {
         <Route path='/sortering' element={<Trashguide />}/>
         <Route path='/stations' element={<Stations />}/>
         <Route path='/login' element={<Login />}/>
+        <Route path='*' element={<NotFound/>}/>
     </Routes>
   )
 }
