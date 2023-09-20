@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ReviewStyle = styled.article`
+margin-left: 10%;
 margin-top: 5vh;
 label{
     display: none;
@@ -12,8 +13,10 @@ textarea{
     padding-left: 1vw;
 }
 .subjectRatingDiv{
+    width: 90%;
     display: grid;
-    grid-template-columns: 25% 60% 15%;
+    grid-template-columns: 25% 60% 25%;
+    padding-left: 1vw;
 
     input{
     border: none;
@@ -31,6 +34,7 @@ color: #80AB87;
 padding: 2vh 8vw;
 border-radius: 12px;
 border: none;
+margin-top: 5vh;
 margin-left: 35%;
 }
 span{
@@ -40,7 +44,7 @@ ul{
     margin-top: 5vh;
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     div{
         display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -10,7 +10,7 @@ justify-items: center;
     margin-top: 20vh;
     margin-bottom: 20vh;
     display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(${props => props.isDetail != 0 ? 3 : 1}, 1fr);
 justify-items: center;   
 }
 `

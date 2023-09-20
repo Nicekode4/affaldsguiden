@@ -27,7 +27,7 @@ if (error) {
     getStations()
 }, [])
   return (
-    <StationsStyle>
+    <StationsStyle isDetail={selectedId ? true : false}>
 
             {selectedId ?
                 allStations.map((station,index) => (
