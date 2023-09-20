@@ -3,9 +3,11 @@ import { ReviewStyle } from './Review.style'
 import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
 import axios from 'axios'
+import starGrey from '../../Images/Layout/icon-magic-star.svg'
+import starGold from '../../Images/Layout/icon-magic-star-gold.svg'
 
 function Review({data}) {
-    console.log(data);
+    const [ratingNum, setRatingNum] = useState(0)
     const url = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/review?select=*'
     const [reveiws, setReveiws] = useState([])
     const { register, handleSubmit, formState: { errors } } = useForm() 
@@ -17,9 +19,9 @@ function Review({data}) {
 
     async function createReview(formData) {
         axios.post(url, { 
-            "subject": `Anmeldelse om ${data.name}`, 
+            "subject": formData.subject, 
             "comment": formData.message,
-            "num_stars": formData.stars,
+            "num_stars": ratingNum,
             "date": "2023-09-19",
             "org_id": data.id,
             "user_id": JSON.parse(sessionStorage.getItem('user'))[0].id || 0,
@@ -51,18 +53,31 @@ function Review({data}) {
   return (
     <ReviewStyle>
     
-<h2>Skriv en kommentar</h2>
 {sessionStorage.getItem('user') ? <form onSubmit={handleSubmit(submitForm)}>
-
+<div className='subjectRatingDiv'>
+ 
+    <label htmlFor="subject">Overskrift</label>
+    <input type="text" name="subject" id="subject" placeholder='Skriv en kommentar' {...register('subject', {required: true})} />
+   <div></div>
+   <div className='ratingDiv'>
     <label htmlFor="stars">Antal stjerner </label>
-    <input type="number" min={1} max={5} name="stars" id="stars" {...register('stars', {required: true})} />
-
+        <div>
+        <img id='star1' onClick={() => setRatingNum(1)} src={ratingNum > 0 ? starGold : starGrey} alt="star" />
+        <img id='star2' onClick={() => setRatingNum(2)} src={ratingNum > 1 ? starGold : starGrey} alt="star" />
+        <img id='star3' onClick={() => setRatingNum(3)} src={ratingNum > 2 ? starGold : starGrey} alt="star" />
+        <img id='star4' onClick={() => setRatingNum(4)} src={ratingNum > 3 ? starGold : starGrey} alt="star" />
+        <img id='star5' onClick={() => setRatingNum(5)} src={ratingNum > 4 ? starGold : starGrey} alt="star" />
+    </div>
+    </div>
+</div>
+    
     <label htmlFor="message">Besked </label>
     <textarea name="message" id="message" {...register('message', {required: true, pattern: { value: /^[A-Za-z.,()!?@\såæø-]+$/i, message: 'Din besked indeholder ugyldige tegn'}  })} cols="30" rows="10"></textarea>
     {errors.message && <span>{errors.message.message || 'Du skal skrive en besked'}</span>}
+    {errors.stars && <span>Du skal skrive en overskrift</span>}
     {errors.stars && <span>Du skal give en rating</span>}
-<button type="submit">Send</button>
-<button type="reset">Start forfra</button>
+<button type="submit">Kommenter</button>
+{/* <button type="reset">Start forfra</button> */}
 </form> : 'Log ind for at skrive en anmeldelse'}
 
 <ul>
