@@ -65,14 +65,16 @@ console.log(JSON.parse(sessionStorage.getItem('user')) || 'No user in sessionsto
   return (
     <LoginStyle>
             {!loggedIn ? <>
+            <div>
+
             
-              <div>
+              <div className='logoDiv'>
            <img src={logo} alt="Logo" />  
            <p>Affaldsguiden</p> 
       </div>
       <p>Log ind på Affaldsguiden
 for at anmelde stationer</p>
-            
+      </div>      
             <form onSubmit={handleSubmit(submitForm)}>
               <h1>Log ind</h1>
               <label  htmlFor="username">Brugernavn</label>
