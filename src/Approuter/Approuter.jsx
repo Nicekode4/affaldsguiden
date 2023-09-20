@@ -13,7 +13,7 @@ function Approuter() {
   return (
     <Routes>
         <Route index element={<Frontpage />}/>
-        <Route path='/sortering' element={<Trashguide />}/>
+        <Route path='/sorting' element={<Trashguide />}/>
         <Route path='/stations' element={<Stations />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/order' element={<Order />}/>
