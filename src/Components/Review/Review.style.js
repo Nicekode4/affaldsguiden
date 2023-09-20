@@ -62,19 +62,22 @@ ul{
 }
 
 @media screen and (min-width: 768px) {
-    margin-left: 10%;
+    margin-left: 0%;
 margin-top: 5vh;
 label{
     display: none;
 }
 textarea{
-    width: 90%;
+    width: 80%;
     border-radius: 20px;
     border: none;
     padding-left: 1vw;
+    margin-left: 10%;
 }
 .subjectRatingDiv{
-    width: 90%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
     display: grid;
     grid-template-columns: 25% 60% 25%;
     padding-left: 1vw;
@@ -96,7 +99,7 @@ padding: 2vh 8vw;
 border-radius: 12px;
 border: none;
 margin-top: 5vh;
-margin-left: 35%;
+margin-left: 40%;
 }
 span{
     display: block;
@@ -107,21 +110,34 @@ ul{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 2vw;
-    div:first-of-type{
-        display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0;
+    height: auto;
+    div{
+        display: inline;
+    height: auto;
     margin: 3vh 0vw;
     width: 100%;
     margin-top: 0;
     margin-bottom: 0;
+li{
+        width: 100%;
+        padding: 0vh 4vw;
+        display: inline;
+        height: fit-content;
 
-    }
-    li{
-        width: auto;
-        border: 1px solid black;
         margin-top: 0;
         color: #4F5B79;
     }
+    li:last-of-type{
+        display: block;
+        top: 0;
+        margin-bottom: 5vh;
+        margin-top: 1vh;
+        height: auto;
+        width: auto;
+    }
+    }
+    
 }   
 }
 `

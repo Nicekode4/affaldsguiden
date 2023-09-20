@@ -8,8 +8,11 @@ import starGold from '../../Images/Layout/icon-magic-star-gold.svg'
 
 function Review({data}) {
     const [ratingNum, setRatingNum] = useState(0)
-    const url = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/review?select=*'
+    const reviewUrl = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/review?select=*'
+    const namesUrl = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/user?select=id,firstname'
     const [reveiws, setReveiws] = useState([])
+    const [names, setNames] = useState([])
+
     const { register, handleSubmit, formState: { errors } } = useForm() 
 
     const submitForm = (data) => {
@@ -18,7 +21,7 @@ function Review({data}) {
     }
 
     async function createReview(formData) {
-        axios.post(url, { 
+        axios.post(reviewUrl, { 
             "subject": formData.subject, 
             "comment": formData.message,
             "num_stars": ratingNum,
@@ -38,7 +41,7 @@ function Review({data}) {
         })
     }
     useEffect(() => {
-        axios.get(url, {
+        axios.get(reviewUrl, {
             headers: {
               'apiKey': `${supabase.supabaseKey}`
             }
@@ -48,6 +51,18 @@ function Review({data}) {
         .then((response) => {
             console.log('axiosData', response.data);
             setReveiws(response.data)
+        })
+
+        axios.get(namesUrl, {
+            headers: {
+              'apiKey': `${supabase.supabaseKey}`
+            }
+          }).catch(error => {
+            console.log("get error: ", error);
+        })
+        .then((response) => {
+            console.log('axiosData', response.data);
+            setNames(response.data)
         })
     }, [])
   return (
@@ -86,11 +101,17 @@ function Review({data}) {
         reveiws.map((item) => (
             <>
             <div>
-                           <li>{'Ben'}</li>            
+                           <li>{
+                            names.map((name) => {
+                                if (item.user_id == name.id) {
+                                    return name.firstname || 'Anon'
+                                }
+                            })
+                            }</li>            
                 <li>{item.date}</li>    
-
-            </div>
 <li>{item.comment}</li>
+            </div>
+
             </>
 
 
