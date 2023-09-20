@@ -1,5 +1,7 @@
 import React from 'react'
 import { FooterStyle } from './Footer.style'
+import arrowUp from '../../Images/Layout/icon-arrow-up.svg'
+
 
 function Footer() {
   return (
@@ -14,7 +16,7 @@ function Footer() {
             <p className='copyright'>©2023 Affaldsguiden. </p>
       </div>
 
-            <p className='toTop'>Til toppen <img src="" alt="back to top" /></p>
+            <div onClick={() => window.scrollTo(0, 0)} className='toTop'><p>Til toppen</p><img src={arrowUp} alt="back to top" /></div>
     </FooterStyle>
   )
 }

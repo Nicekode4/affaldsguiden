@@ -40,7 +40,7 @@ color: white;
 text-align: start;
 padding-left: 5%;
 display: grid;
-grid-template-columns: 80% 30%;
+grid-template-columns: 80% 20%;
 
 p{
     padding: 2vh 0vw;
@@ -66,8 +66,18 @@ p{
 
 }
 .toTop{
-text-align: end;
-margin-top: 21vh;
+    margin-top: 21vh;
+    display: flex;
+p{
+    text-align: end;
+    margin-right: 1vw;
+
+}
+img{
+    padding-top: 2vh;
+    height: 3vh;
+    width: auto;
+}
 }   
 }
 `
