@@ -84,12 +84,12 @@ margin-bottom: 20vh;
 
 .titleArt{
     display: grid;
-    grid-template-columns: 75% 30%;
+    grid-template-columns: 92% 8%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     h2{
         color: white;
-        padding: 5vh 7vw;
+        padding: 5vh 5vw;
     }
 
     img{
