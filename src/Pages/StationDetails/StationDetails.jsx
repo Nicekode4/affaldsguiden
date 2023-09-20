@@ -17,7 +17,7 @@ function StationDetails({data}) {
 let { data: review, error } = await supabase
 .from('review')
 .select('num_stars')
-.eq('id', id)
+.eq('org_id', id)
 
 console.log(review);
 if (review.length > 0) {
@@ -42,7 +42,7 @@ if (review.length > 0) {
         </div>
         <p className='title'>{data?.name}</p>
         <div className='stars'>
-            {
+        {
                 [1,2,3,4,5].map((num) =>{
                     if (num > avgRating) {
                         return <img src={starGrey} alt="Grey star" />

@@ -7,7 +7,7 @@ import StationDetails from '../StationDetails/StationDetails'
 
 function Stations() {
 const [allStations, setAllStations] = useState([])
-const [selectedId, setSelectedId] = useState([])
+const [selectedId, setSelectedId] = useState()
 
 useEffect(() => {
     const getStations = async () => {
@@ -27,11 +27,11 @@ if (error) {
     getStations()
 }, [])
   return (
-    <StationsStyle isDetail={selectedId ? true : false}>
+    <StationsStyle isDetail={!selectedId ? true : false}>
 
-            {selectedId ?
+            {!selectedId ?
                 allStations.map((station,index) => (
-                    <div onClick={() => setSelectedId(index)}>
+                    <div key={index} onClick={() => setSelectedId(index)}>
                         <StationCard data={station}/> 
                     </div>
 

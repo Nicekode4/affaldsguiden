@@ -7,14 +7,13 @@ import starGold from '../../Images/Layout/icon-magic-star-gold.svg'
 function StationCard({data}) {
     const [avgRating, setAvgRating] = useState(0)
     const [numRating, setNumRating] = useState(0)
-
     useEffect(() => {
         async function getRating(id) {
             
 let { data: review, error } = await supabase
 .from('review')
 .select('num_stars')
-.eq('id', id)
+.eq('org_id', id)
 
 console.log(review);
 if (review.length > 0) {
