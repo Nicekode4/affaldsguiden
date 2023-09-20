@@ -3,8 +3,10 @@ import { FrontpageStyle } from './Frontpage.style'
 import slide3 from '../../Images/Slideshow/affald-skov-1.jpg'
 import slide2 from '../../Images/Slideshow/affald-strand-2.jpg'
 import slide1 from '../../Images/Slideshow/malerspande.jpg'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function Frontpage() {
+  const navigate = useNavigate()
   const imgArray = [
     slide1,
     slide2,
@@ -24,8 +26,8 @@ function Frontpage() {
       <section className='CTASec'>
 <h1>Find og anmeld genbrugsstationer</h1>
 <article>
-  <button>Find station</button>
-  <button>Login</button>
+  <button onClick={() => navigate('/stations')}>Find station</button>
+  <button onClick={() => navigate('/login')}>Login</button>
 </article>
       </section>
 
@@ -35,7 +37,7 @@ function Frontpage() {
               <article>
                 <h2>Din <strong>guide</strong> <strong>til</strong> <strong>sortering</strong></h2>
                 <p>Her kan du se hvordan du skal sortere og hvad der skal i hvilke beholdere. Du får også tips og tricks til, hvordan du gør det nemt at sortere hjemme hos dig.</p>
-                <button>Se affaldsguide</button>
+                <button onClick={() => navigate('/sorting')}>Se affaldsguide</button>
               </article>
               <img className='desktopImg' src={require('../../Images/frontpageImg1.png')} alt="Image of trashcan" />
             </section>
@@ -45,7 +47,7 @@ function Frontpage() {
               <article>
                 <h2>Bestil <strong>din</strong> <strong>nye</strong> <strong>affaldsbeholder</strong></h2>
                 <p>when an unknown printer took a galley of type and scramble it to make a type specimen book. It has survived not only</p>
-                <button>Bestil nu</button>
+                <button onClick={() => navigate('/order')}>Bestil nu</button>
               </article>
 
             </section>
