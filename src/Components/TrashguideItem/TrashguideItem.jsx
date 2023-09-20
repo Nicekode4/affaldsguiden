@@ -3,7 +3,7 @@ import { TrashguideItemStyle } from './TrashguideItem.style'
 import supabase from '../../supabase.js'
 import placeholder from '../../Images/Guide/Icons/asfalt.svg'
 
-function TrashguideItem({title, id}) {
+function TrashguideItem({title, id, filename}) {
         const [data, setData] = useState([])
         const [typeName, setTypeName] = useState([])
         let typeNamesArray;
@@ -66,7 +66,7 @@ function sorter(typeId) {
     <TrashguideItemStyle>
         <article className='itemArt'>
         <div>
-            <img src={placeholder} alt="Icon" />
+            <img src={require(`../../Images/Guide/Icons/${filename}`)} alt="Icon" />
             <h2>{title}</h2>
         </div>
         <p>hvad modtager vi?</p>
@@ -82,7 +82,6 @@ function sorter(typeId) {
                     
                 })
             }
-            <li><p>Ja tak</p>{}</li>
         </ul>
         <p>hvad modtager vi ikke?</p>
         <hr />

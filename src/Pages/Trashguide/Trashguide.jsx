@@ -47,8 +47,11 @@ setItems(category)
     <TrashguideStyle>
         <h1><span>Din guide</span> til en sund affaldsortering</h1>
         <section className='searchSec'>
+            <form>
             <input type="search" name="search" id="search" placeholder='Søg på affald'/>
-            <button>Search</button>
+            <button type='submit'>Search</button>
+            </form>
+
         </section>
 
 {      !items ? <section className='categorySec'>
@@ -75,7 +78,7 @@ setItems(category)
         </article>
         {
             items.map((items,index) => (
-                <TrashguideItem title={items.title} id={items.id}/>
+                <TrashguideItem title={items.title} id={items.id} filename={items.image_filename}/>
             ))
         }
         </section>}
