@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 
 export const NotFoundStyle = styled.section`
-    margin: 2vh 1vw;
+
+    margin: 20vh 1vw;
 text-align: center;
 h2{
     font-size: 18px;
