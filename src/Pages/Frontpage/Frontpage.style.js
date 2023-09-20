@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const FrontpageStyle = styled.section`
-margin-left: 2vw;
-margin-right: 2vw;
+
 button{
     color: white;
     background-color: #114D46;
@@ -40,6 +39,8 @@ button{
     display: block;
 }
 .textSec{
+    margin-left: 2vw;
+margin-right: 2vw;
     text-align: center;
     strong {
       position: relative;
@@ -97,24 +98,31 @@ img{
         background-size: cover;
         margin: 0;
         padding: 0;
+        margin-bottom: 20vh;
         button{
     color: white;
+    width: fit-content;
+    height: 5vh;
+    margin-top: 30vh;
+    margin-left: 4vh;
+    border-radius: 50px;
     background-color: none;
     border: none;
-    padding: 2vh 5vw;
-    border-radius: 6px;
+    padding: 0vh 1.5vw;
 }
     }
 
 
 .CTASec{
+    position: absolute;
+    top: 500px;
     text-align: center;
     margin-top: 2vh;
     margin-bottom: 2vh;
     margin-left: 30%;
     background-color: #D8EADB;
     border-radius: 6px;
-    padding: 2vh 2vw;
+    padding: 4vh 4vw;
     width: 35%;
     article{
         width: max-content;

@@ -17,9 +17,9 @@ function Frontpage() {
   return (
     <FrontpageStyle>
       <section style={{backgroundImage: `url(${imgArray[slideNum]})`}} className='sliderSec'>
-      <button onClick={() => setSlideNum(prev => prev + 1)}>Next</button>
-      <div></div>
-      <button onClick={() => setSlideNum(slideNum + 1)}>Prev</button>
+      <button onClick={() => setSlideNum(slideNum + 1)}>P</button>
+      <div></div>      
+      <button onClick={() => setSlideNum(prev => prev + 1)}>N</button>
       </section>
       <section className='CTASec'>
 <h1>Find og anmeld genbrugsstationer</h1>
