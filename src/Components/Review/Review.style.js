@@ -10,7 +10,10 @@ textarea{
     width: 90%;
     border-radius: 20px;
     border: none;
-    padding-left: 1vw;
+    padding-left: 2vw;
+}
+textarea::placeholder{
+    color: black;
 }
 .subjectRatingDiv{
     width: 90%;
@@ -22,6 +25,7 @@ textarea{
     border: none;
     width: 100%;
     height: 4vh;
+    
 }
 input::placeholder{
     font-size: 15px;

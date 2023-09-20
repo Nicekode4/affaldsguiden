@@ -72,7 +72,7 @@ function Review({data}) {
 </div>
     
     <label htmlFor="message">Besked </label>
-    <textarea name="message" id="message" {...register('message', {required: true, pattern: { value: /^[A-Za-z.,()!?@\såæø-]+$/i, message: 'Din besked indeholder ugyldige tegn'}  })} cols="30" rows="10"></textarea>
+    <textarea name="message" id="message" placeholder='Skriv en besked...' {...register('message', {required: true, pattern: { value: /^[A-Za-z.,()!?@\såæø-]+$/i, message: 'Din besked indeholder ugyldige tegn'}  })} cols="30" rows="10"></textarea>
     {errors.message && <span>{errors.message.message || 'Du skal skrive en besked'}</span>}
     {errors.subject && <span>Du skal skrive en overskrift</span>}
     {errors.stars && <span>Du skal give en rating</span>}
