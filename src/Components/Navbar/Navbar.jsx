@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export const NavbarStyle = styled.div`
 
-
+height: auto;
 button{
     margin-bottom: 2vh;
     margin-left: 45%;
@@ -26,7 +26,6 @@ nav{
     width: 100%;
     height: auto;
     ul{
-        
         list-style: none;
         text-align: center;
         li{
@@ -60,15 +59,23 @@ nav{
     button{
         display: none;
     }
+    .active{
+    color: #6DA830;
+    border-top: 1px solid #6DA830;
+    margin-top: 1vh;
+    padding-top: 2vh;
+}
     nav{
     height: 100%;
     display: block;
     ul{
+        height: 100%;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         list-style: none;
         li{
-            margin-top: 1vh;
+            margin-top: 7vh;
+            font-size: 18px;
         }
     }
 } 

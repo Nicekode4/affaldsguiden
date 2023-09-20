@@ -6,7 +6,7 @@ import logo from '../../Images/Layout/logo.svg'
 function Header() {
   return (
     <HeaderStyle>
-      <div>
+      <div className='logoDiv'>
            <img src={logo} alt="Logo" />  
            <p>Affaldsguiden</p> 
       </div>

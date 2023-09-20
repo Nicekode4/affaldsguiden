@@ -26,11 +26,17 @@ p{
 height: auto;
 display: grid;
 grid-template-columns: 20% 80%;
-div{
+.logoDiv{
     display: flex;
+    p{
+        display: block;
+        margin-top: 6.5vh;
+        font-size: 22px;
+        font-weight: 600;
+    }
  img{
-    padding: 1vh 2vw;
-    height: 75%;
+    padding: 5vh 1vw;
+    height: 35%;
 }
 
 p{
