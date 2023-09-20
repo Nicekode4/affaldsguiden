@@ -37,6 +37,7 @@ grid-template-columns: 20% 80%;
  img{
     padding: 5vh 1vw;
     height: 35%;
+    width: auto;
 }
 
 p{

@@ -79,6 +79,24 @@ nav{
         }
     }
 } 
+
+.login{
+    margin-top: 6vh;
+    height: 5vh;
+    width: 4vw;
+    border-radius: 50px;
+    background-color: #D8EADB;
+    a{
+        border: none;
+          img{
+            padding: 0;
+            padding-top: 1vh;
+        width: auto;
+        height: 3vh;
+    }  
+    }
+
+}
 }
 `
 
