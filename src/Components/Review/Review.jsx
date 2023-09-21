@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import axios from 'axios'
 import starGrey from '../../Images/Layout/icon-magic-star.svg'
 import starGold from '../../Images/Layout/icon-magic-star-gold.svg'
+import comment from '../../Images/Layout/icon-speech-bubble.svg'
 
 function Review({data}) {
     const [ratingNum, setRatingNum] = useState(0)
@@ -91,7 +92,11 @@ function Review({data}) {
     {errors.message && <span>{errors.message.message || 'Du skal skrive en besked'}</span>}
     {errors.subject && <span>Du skal skrive en overskrift</span>}
     {errors.stars && <span>Du skal give en rating</span>}
-<button type="submit">Kommenter</button>
+    <div className='commentDiv'>
+        <img src={comment} alt="speech bubble" />
+        <input type="submit" value="Kommenter" />
+    </div>
+
 {/* <button type="reset">Start forfra</button> */}
 </form> : 'Log ind for at skrive en anmeldelse'}
 

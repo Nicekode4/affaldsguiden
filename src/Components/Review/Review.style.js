@@ -92,14 +92,28 @@ input::placeholder{
     color: black;
 }
 }
-button{
+.commentDiv{
+    width: 9vw;
+    display: flex;
 background-color: #D8EADB;
 color: #80AB87;
-padding: 2vh 8vw;
+padding: 2vh 6vw;
 border-radius: 12px;
 border: none;
 margin-top: 5vh;
+margin-bottom: 10vh;
 margin-left: 40%;
+input{
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background-color: #D8EADB;
+color: #80AB87;
+}
+img{
+    margin-right: 2vh;
+    padding-top: 0.5vh;
+}
 }
 span{
     display: block;
