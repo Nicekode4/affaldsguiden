@@ -6,7 +6,7 @@ function usePageTitle() {
 
   useEffect(() => {
     // Extract the route name from the location object
-    const routeName = location.pathname === '/' ? 'Home' : location.pathname.replace('/', '');
+    const routeName = location.pathname === '/' ? 'Forside' : location.pathname.replace('/', '');
 
     // Set the document title based on the route name
     document.title = `${routeName.charAt(0).toUpperCase() + routeName.slice(1)}`;
