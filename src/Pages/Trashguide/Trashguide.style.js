@@ -48,7 +48,6 @@ margin-left: 10%;
     width: auto;
     }
 }
-
 @media screen and (min-width: 768px) {
     h1{
     font-size: 30px;

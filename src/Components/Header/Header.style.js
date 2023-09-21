@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const HeaderStyle = styled.header`
-border-bottom: 1px solid black;
+box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.41);
 height: auto;
 display: grid;
 grid-template-columns: 1fr;
-gap: 2vh;
+gap: 0vh;
 div{
     p{
         display: none;
@@ -22,7 +22,6 @@ p{
 }   
 }
 @media screen and (min-width: 768px) {
-    border-bottom: 1px solid black;
 height: auto;
 display: grid;
 grid-template-columns: 20% 80%;

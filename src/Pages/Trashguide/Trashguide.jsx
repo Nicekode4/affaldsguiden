@@ -5,7 +5,9 @@ import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
 import axios from 'axios'
 import search from '../../Images/Layout/icon-search.svg'
+import wave from '../../Images/Layout/bg-waves-1.svg'
 import TrashguideItem from '../../Components/TrashguideItem/TrashguideItem'
+
 
 function Trashguide() {
     const url = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/section?select=*'
@@ -44,6 +46,8 @@ setItems(category)
     }, [selectedId])
     
   return (
+    <>
+   
     <TrashguideStyle>
         <h1><span>Din guide</span> til en sund affaldsortering</h1>
         <section className='searchSec'>
@@ -82,8 +86,10 @@ setItems(category)
             ))
         }
         </section>}
-
+        
     </TrashguideStyle>
+    <img style={{width: '98.8vw', marginBottom: '-0.5vh'}} src={wave} alt="wave" /> 
+    </>
   )
 }
 

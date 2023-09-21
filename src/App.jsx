@@ -3,6 +3,7 @@ import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import usePageTitle from './Components/PageWrapper/PageTitle';
 import { GlobalStyle } from './Global.style';
+import wave from './Images/Layout/bg-waves-1.svg'
 
 function App() {
   usePageTitle()
@@ -11,8 +12,9 @@ function App() {
       <GlobalStyle />
       <Header />
       <main>
-          <Approuter />
+          <Approuter /> 
       </main>
+      
       <Footer /> 
     </div>
   );
