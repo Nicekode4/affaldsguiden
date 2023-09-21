@@ -145,10 +145,14 @@ img{
 }
 .mobileImg{
     display: none;
+    width: 100%;
+    height: auto;
 }
 
 .desktopImg{
     display: block;
+    width: 100%;
+    height: auto;
 }
 .textSec{
     text-align: start;
@@ -201,6 +205,7 @@ button{
 
 img{
     width: 100%;
+    height: auto;
 } 
 
 }
