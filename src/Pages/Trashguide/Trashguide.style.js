@@ -29,6 +29,7 @@ margin-left: 10%;
 
     button{
         border: none;
+        margin-left: 20%;
     }
 }
 
@@ -70,7 +71,7 @@ margin-bottom: 20vh;
     padding: 2vh 2vw;
     input{
         border: none;
-        padding-left: 2vw;
+        padding-left: 1vw;
         width: 35vw;
     }
     input::placeholder{
@@ -79,6 +80,7 @@ margin-bottom: 20vh;
 
     button{
         border: none;
+        margin-left: 10%;
     }
 }
 

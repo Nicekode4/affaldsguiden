@@ -4,7 +4,7 @@ import TrashCard from '../../Components/TrashCard/TrashCard'
 import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
 import axios from 'axios'
-import image from '../../Images/Guide/Categories/papir-og-aviser.jpg'
+import search from '../../Images/Layout/icon-search.svg'
 import TrashguideItem from '../../Components/TrashguideItem/TrashguideItem'
 
 function Trashguide() {
@@ -49,7 +49,7 @@ setItems(category)
         <section className='searchSec'>
             <form>
             <input type="search" name="search" id="search" placeholder='Søg på affald'/>
-            <button type='submit'>Search</button>
+            <button type='submit'><img src={search} alt="search icon" /></button>
             </form>
 
         </section>
