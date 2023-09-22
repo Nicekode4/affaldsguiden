@@ -26,17 +26,23 @@ width: auto;
 
 .rating{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 55% 45%;
     margin-top: 10vh;
     padding-left: 1vw;
+    p{
+           color: #1A1A1A; 
+           opacity: 50%;
+    }
 }
 
 @media screen and (min-width: 768px) {
+    
     margin-bottom: 10vh;
-    iframe{
+    iframe{        
     border: none;
+    border-radius: 8px;
     height: 30vh;
-width: 100%;
+width: 25vw;
 }
 
 .title{
@@ -52,8 +58,13 @@ width: 100%;
 
 .rating{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 65% 35%;
     margin-top: 10vh;
+    p{
+           color: #1A1A1A; 
+           opacity: 50%;
+    }
+
 }   
 }
 `

@@ -74,7 +74,6 @@ p{
 
 button{
     color: white;
-    background-color: #114D46;
     border: none;
     padding: 2vh 5vw;
     border-radius: 6px;
@@ -103,12 +102,16 @@ img{
     color: white;
     width: fit-content;
     height: 5vh;
-    margin-top: 30vh;
+    margin-top: 29vh;
     margin-left: 4vh;
     border-radius: 50px;
-    background-color: none;
+    background-color: #ffffff00;
     border: none;
     padding: 0vh 1.5vw;
+    img{
+        height: auto;
+        width: 3vw;
+    }
 }
     }
 
@@ -159,6 +162,7 @@ img{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20vh;
+    margin-bottom: 20vh;
     strong {
         display: inline-block;
       position: relative;
@@ -182,7 +186,7 @@ img{
    h2{
     color: #222A41;
     margin-bottom: 2vh;
-    margin-top: 2vh;
+    margin-top: 10vh;
     font-size: 74px;
     font-weight: 400;
 }
@@ -207,6 +211,10 @@ img{
     width: 100%;
     height: auto;
 } 
+
+img:first-child{
+    margin-bottom: 20vh;
+}
 
 }
 }

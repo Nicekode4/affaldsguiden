@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const LoginStyle = styled.section`
-margin: 2vh 2vw;
+margin: 10vh 2vw;
+height: auto;
 display: grid;
 grid-template-columns: repeat(1, 1fr);
 justify-items: center;
@@ -44,10 +45,12 @@ button{
     margin-left: 25%;
     margin-top: 2vh;
     width: 50%;
+    height: fit-content;
 }
 
 @media screen and (min-width: 768px) {
     margin: 2vh 2vw;
+    height: 90vh;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 justify-items: start;
@@ -113,6 +116,7 @@ button{
     margin-left: 25%;
     margin-top: 2vh;
     width: 50%;
+    height: fit-content;
 }   
 }
 `

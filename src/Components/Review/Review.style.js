@@ -63,6 +63,27 @@ ul{
     list-style: none;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    li{
+        width: 100%;
+        padding: 0vh 0vw;
+        display: inline;
+        height: fit-content;
+        margin-top: 0;
+        color: #4F5B79;
+    }
+    li:first-of-type{
+        
+    }
+    li:last-of-type{
+        display: block;
+        word-break: break-all;
+        color: black;
+        top: 0;
+        margin-bottom: 5vh;
+        margin-top: 1vh;
+        height: auto;
+        width: 160%;
+    }
     
     div{
         display: grid;
@@ -149,20 +170,24 @@ ul{
     margin-bottom: 0;
 li{
         width: 100%;
-        padding: 0vh 4vw;
+        padding: 0vh 0vw;
         display: inline;
         height: fit-content;
-
         margin-top: 0;
         color: #4F5B79;
     }
+    li:first-of-type{
+        margin-right: 74%;
+    }
     li:last-of-type{
         display: block;
+        word-break: break-all;
+        color: black;
         top: 0;
         margin-bottom: 5vh;
         margin-top: 1vh;
         height: auto;
-        width: auto;
+        width: 100%;
     }
     }
     

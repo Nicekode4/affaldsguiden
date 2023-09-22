@@ -10,12 +10,12 @@ function StationCard({data}) {
     useEffect(() => {
         async function getRating(id) {
             
+            // Supabase fetch
 let { data: review, error } = await supabase
 .from('review')
 .select('num_stars')
 .eq('org_id', id)
 
-console.log(review);
 if (review.length > 0) {
     let result = 0
     for (let index = 0; index < review.length; index++) {
@@ -44,6 +44,7 @@ if (review.length > 0) {
     <div className='rating'>
         <div className='stars'>
             {
+                // Hvis num er større end værdien i avgRating hooket, så bliver stjernen grå 
                 [1,2,3,4,5].map((num) =>{
                     if (num > avgRating) {
                         return <img src={starGrey} alt="Grey star" />
@@ -53,7 +54,7 @@ if (review.length > 0) {
                 })
             }
         </div>
-        <p>{numRating} andmeldelser</p>
+        <p>{numRating} anmeldelser</p>
     </div>
     </StationCardStyle>
   )

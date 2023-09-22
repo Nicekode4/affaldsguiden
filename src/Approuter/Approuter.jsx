@@ -2,8 +2,6 @@ import React from 'react'
 import Frontpage from '../Pages/Frontpage/Frontpage'
 import { Route, Routes } from 'react-router-dom'
 import Login from '../Pages/Login/Login'
-import Review from '../Components/Review/Review'
-import Ticket from '../Pages/Ticket/Ticket'
 import Trashguide from '../Pages/Trashguide/Trashguide'
 import Stations from '../Pages/Stations/Stations'
 import NotFound from '../Pages/NotFound/NotFound'
@@ -11,6 +9,7 @@ import Order from '../Pages/Order/Order'
 
 function Approuter() {
   return (
+        //Routes til diverse sider
     <Routes>
         <Route index element={<Frontpage />}/>
         <Route path='/sorting' element={<Trashguide />}/>

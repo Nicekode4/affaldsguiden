@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom';
 import loggedIn from '../../Images/Layout/icon-unlock.svg'
 import styled from "styled-components";
 
+// Min styled components inline styling
 export const NavbarStyle = styled.div`
 
 height: auto;
@@ -70,9 +71,12 @@ nav{
     display: block;
     ul{
         height: 100%;
+        width: 90%;
+        margin-left: 10%;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, auto) 35%;
         list-style: none;
+        
         li{
             margin-top: 7vh;
             font-size: 18px;
@@ -83,7 +87,8 @@ nav{
 .login{
     margin-top: 6vh;
     height: 5vh;
-    width: 4vw;
+    margin-left: 20vw;
+    width: 2.5vw;
     border-radius: 50px;
     background-color: #D8EADB;
     a{
@@ -101,20 +106,19 @@ nav{
 `
 
 function Navbar() {
-    const [menuOne, setMenuOne] = useState(false)
-
-
   return (
     <NavbarStyle>
              
 
-            <nav>            
+            <nav>    
+                {/* ternary operator til at gemme knappen når der klikkes på den         */}
             <button onClick={() => document.getElementById('navElements').style.display === 'none' ?  document.getElementById('navElements').style.display = 'block' : document.getElementById('navElements').style.display = 'none'}>
                 <hr />
                 <hr />
                 <hr />
             </button>
                <ul id='navElements'>
+                {/* NavLinks som på siden opføre sig ligesom et anchor tag som smider folk hen til den side der er ved to={} */}
                     <li><NavLink to={'/'}>Forside</NavLink></li>
                     <li><NavLink to={'/sorting'}>Sotering</NavLink></li>
                     <li><NavLink to={'/stations'}>Genbrugsstationer</NavLink></li>

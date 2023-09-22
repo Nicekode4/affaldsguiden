@@ -1,36 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { TrashguideItemStyle } from './TrashguideItem.style'
 import supabase from '../../supabase.js'
-import placeholder from '../../Images/Guide/Icons/asfalt.svg'
 
 function TrashguideItem({title, id, filename}) {
         const [data, setData] = useState([])
         const [typeName, setTypeName] = useState([])
-        let typeNamesArray;
         
         useEffect(() => {
             async function getData(id) {
-                
+                // Supabase fetch
 let { data: category_type_rel, error } = await supabase
 .from('category_type_rel')
 .select('*')
 .eq('category_id', id)
 
-console.log(category_type_rel);
+//Sætter response fra fetch som værdi i data useState hooket
 setData(category_type_rel)
 
+// Er der en fejl med fetchet, vises fejlen i konsollen
 if (error) {
     console.log(error);
-}else{
-    for (let index = 0; index < data.length; index++) {
-        const element = data[index];
-
-        //typeNamesArray.push(element.type_id)
-        
-    }
-    console.log(typeNamesArray);
 }
-
 
             }
 
@@ -47,11 +37,11 @@ let { data: type, error } = await supabase
 if (error) {
     console.log('error getting type: ', error);
 }else{
-    console.log(type);
     setTypeName(type)
 }
         }
 
+        // Funktion der finder navnet på det id der bliver passed (her typeId) ved at loop igennem alle indtil den finder det rigtige id
 function sorter(typeId) {
     let result; 
     for (let index = 0; index < typeName.length; index++) {
@@ -73,9 +63,8 @@ function sorter(typeId) {
         <hr />
         <ul>
             {
+                            // Looper gennem data objektet og hvis item.is_allowed er true så viser den værdien der har type_id som id som den henter via sorter funktionen 
                 data.map((item) => {
-                   console.log(item.type_id);
-                   //getType(item.type_id)
                     if (item.is_allowed) {
                       return <li><p>{sorter(item.type_id)}</p><p className='allowed'>Ja tak</p></li>  
                     }
@@ -87,9 +76,8 @@ function sorter(typeId) {
         <hr />
         <ul>
         {
+            // Looper gennem data objektet og hvis item.is_allowed er false så viser den værdien der har type_id som id som den henter via sorter funktionen 
                 data.map((item) => {
-                   // console.log(item);
-                    //getType(item.type_id)
                     if (!item.is_allowed) {
                       return <li><p >{sorter(item.type_id)}</p><p className='notAllowed'>Nej tak</p ></li>  
                     }
@@ -97,12 +85,6 @@ function sorter(typeId) {
                 })
             }
         </ul>
-        {/* <p>Hvor kommer du af med det?</p>
-        <hr />
-        <ul>
-        <li><p>Ja tak</p>På genbrugstationen</li>
-            <li><p>Ja tak</p>Derhjemme</li>
-        </ul> */}
         </article>
     </TrashguideItemStyle>
   )

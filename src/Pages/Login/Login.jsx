@@ -15,7 +15,7 @@ function Login() {
   }, [])
   
 
-
+// Fjerner login session fra supabase og lokalt i session storage
   async function signOut() {
     const { error } = await supabase.auth.signOut()
     sessionStorage.removeItem('user')
@@ -27,6 +27,7 @@ function Login() {
     }
   }
 
+  // Checker om brugeren har adgang med de givne informationer
   async function signInWithEmail(email,pass) {
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
@@ -46,7 +47,7 @@ let { data: user, error } = await supabase
   if (error) {
     console.log(error);
   }
-console.log(user);
+// Hvis oplysningerne er korrekte men brugeren ikke længere er aktiv vil brugeren blive logget ud med det samme og vist en besked om at brugere er banned
   if (user[0].is_active === 1) {
     sessionStorage.setItem('user', JSON.stringify(user))
     setLoggedIn(true)
@@ -57,11 +58,8 @@ console.log(user);
     }
   }
   const submitForm = (data) => {
-    console.log('Brugernavn: ', data.username);
-    console.log('Password: ', data.password);
     signInWithEmail(data.username, data.password)
   }
-console.log(JSON.parse(sessionStorage.getItem('user')) || 'No user in sessionstorage')
   return (
     <LoginStyle>
             {!loggedIn ? <>

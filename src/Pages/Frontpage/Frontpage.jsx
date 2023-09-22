@@ -3,25 +3,40 @@ import { FrontpageStyle } from './Frontpage.style'
 import slide3 from '../../Images/Slideshow/affald-skov-1.jpg'
 import slide2 from '../../Images/Slideshow/affald-strand-2.jpg'
 import slide1 from '../../Images/Slideshow/malerspande.jpg'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import leftArrow from '../../Images/Layout/icon-arrow-left.svg'
+import rightArrow from '../../Images/Layout/icon-arrow-right.svg'
 
 function Frontpage() {
   const navigate = useNavigate()
+
+  //Array med alle slider billederne
   const imgArray = [
     slide1,
     slide2,
     slide3
   ]
+
   const [slideNum, setSlideNum] = useState(0)
+
+  //Hvis slideNum er større end der er billeder i listen, nulstilles slideNum hooket til 0
   if (slideNum > imgArray.length - 1) {
     setSlideNum(0)
   }
+
+  if (slideNum < 0) {
+    setSlideNum(2)
+  }
+
+  
   return (
     <FrontpageStyle>
       <section style={{backgroundImage: `url(${imgArray[slideNum]})`}} className='sliderSec'>
-      <button onClick={() => setSlideNum(slideNum + 1)}>P</button>
+        {/* Trækker 1 fra hvordan slideNum statet er pt */}
+      <button onClick={() => setSlideNum(slideNum - 1)}><img src={leftArrow} alt="left arrow" /></button>
       <div></div>      
-      <button onClick={() => setSlideNum(prev => prev + 1)}>N</button>
+              {/* ligger 1 til hvordan slideNum statet var før */}
+      <button onClick={() => setSlideNum(prev => prev + 1)}><img src={rightArrow} alt="right arrow" /></button>
       </section>
       <section className='CTASec'>
 <h1>Find og anmeld genbrugsstationer</h1>
@@ -51,7 +66,6 @@ function Frontpage() {
               </article>
 
             </section>
-            <img className='desktopImg' src={require('../../Images/Layout/bg-wave-3.svg')} alt="Wave" />
     </FrontpageStyle>
   )
 }

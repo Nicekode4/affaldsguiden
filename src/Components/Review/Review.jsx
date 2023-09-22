@@ -14,15 +14,19 @@ function Review({data}) {
     const [reveiws, setReveiws] = useState([])
     const [names, setNames] = useState([])
 
+    // useForm hooket
     const { register, handleSubmit, formState: { errors } } = useForm() 
 
+    //Funktionen der bliver kladt når man sender formen afsted
     const submitForm = (data) => {
-        console.log(data);
         createReview(data)
     }
 
+    // Funktionen til at oprette en ny række i review tabellen
     async function createReview(formData) {
+        // axios POST kald
         axios.post(reviewUrl, { 
+            // request body
             "subject": formData.subject, 
             "comment": formData.message,
             "num_stars": ratingNum,
@@ -31,17 +35,19 @@ function Review({data}) {
             "user_id": JSON.parse(sessionStorage.getItem('user'))[0].id || 0,
             "is_active": JSON.parse(sessionStorage.getItem('user'))[0].is_active || 0
         }, {
+            // request headers
             headers: {
                 'apiKey': `${supabase.supabaseKey}`
               }
         })
         .then((response) => {
-            console.log("PostRequest ",response.data);
+            alert('Tak for din anmeldelse')
         }).catch(error => {
             console.log("post error: ", error);
         })
     }
     useEffect(() => {
+        // axios GET kald
         axios.get(reviewUrl, {
             headers: {
               'apiKey': `${supabase.supabaseKey}`
@@ -50,7 +56,6 @@ function Review({data}) {
             console.log("get error: ", error);
         })
         .then((response) => {
-            console.log('axiosData', response.data);
             setReveiws(response.data)
         })
 
@@ -62,13 +67,13 @@ function Review({data}) {
             console.log("get error: ", error);
         })
         .then((response) => {
-            console.log('axiosData', response.data);
             setNames(response.data)
         })
     }, [])
   return (
     <ReviewStyle>
     
+    {/* ser om "user" findes i sessionstorage, gør den det så vises form elementet, ellers vises en besked som beder dig logge ind for at anmelde */}
 {sessionStorage.getItem('user') ? <form onSubmit={handleSubmit(submitForm)}>
 <div className='subjectRatingDiv'>
  
@@ -78,6 +83,7 @@ function Review({data}) {
    <div className='ratingDiv'>
     <label htmlFor="stars">Antal stjerner </label>
         <div>
+            {/* En onClick eventhandler der sætter ratingNum hooket til et tal og hvis hooket er over et bestemt tal vises img tagget som en guld stjerne */}
         <img id='star1' onClick={() => setRatingNum(1)} src={ratingNum > 0 ? starGold : starGrey} alt="star" />
         <img id='star2' onClick={() => setRatingNum(2)} src={ratingNum > 1 ? starGold : starGrey} alt="star" />
         <img id='star3' onClick={() => setRatingNum(3)} src={ratingNum > 2 ? starGold : starGrey} alt="star" />
@@ -107,13 +113,17 @@ function Review({data}) {
             <>
             <div>
                            <li>{
+                            // Tjekker efter et match på personen der har kommenteret og listen af brugernavne. finder den et, vises navnet
                             names.map((name) => {
                                 if (item.user_id == name.id) {
                                     return name.firstname || 'Anon'
+                                }else{
+                                    return false
                                 }
                             })
-                            }</li>            
-                <li>{item.date}</li>    
+                            }</li>                            
+                <li>{item.date}</li>
+ 
 <li>{item.comment}</li>
             </div>
 

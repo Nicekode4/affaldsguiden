@@ -3,8 +3,12 @@ import { styled } from "styled-components";
 export const OrderStyle = styled.section`
 display: grid;
 grid-template-columns: 15% 85%;
-height: 100vh;
-
+height: auto;
+form{
+    background-color: #DCDCDC;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 span{
     display: block;
 }
@@ -30,7 +34,8 @@ label{
     border: none;
     border-radius: 10px;
     padding: 2vh 6vw;
-    margin: 2vh 70%;
+    margin: 2vh 0%;
+    margin-left: 70%;
     box-shadow: -1px 3px 6px 0px rgba(0,0,0,0.41);
 }
 }
@@ -150,7 +155,8 @@ label{
     border: none;
     border-radius: 10px;
     padding: 2vh 6vw;
-    margin: 2vh 65%;
+    margin: 2vh 0%;
+    margin-left: 65%;
     box-shadow: -1px 3px 6px 0px rgba(0,0,0,0.41);
 }
 }

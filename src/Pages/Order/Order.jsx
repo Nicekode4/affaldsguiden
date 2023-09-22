@@ -14,11 +14,13 @@ function Order() {
     const { register, handleSubmit, formState: { errors } } = useForm() 
     const [progress, setProgress] = useState(1)
     const [isNotChecked, setIsNotChecked] = useState(true)
+    const [choosenInput, setChoosenInput] = useState(0)
     
 
 
     async function orderContainer(container_id,fullname,address,zipcode,city,email,phone) {
         
+        // Indsætter en ny række i databasen med de givne informationer
 const { data, error } = await supabase
 .from('order')
 .insert([
@@ -42,7 +44,6 @@ if (error) {
     }
 
     const submitForm = (data) => {
-        console.log(data);
         orderContainer(data.option,data.name,data.address,data.zipcode,data.city,data.email,data.phone)
     }
 
@@ -59,35 +60,48 @@ if (error) {
 
                 <article className='choiceArt'>
                     <div onClick={() => {
+                        // Når der klikkes sættes dette input som valgt og checked
+                        setChoosenInput(1)
                         setIsNotChecked(false)}} className='option'>
-                        <input type="radio" checked={!isNotChecked}  name="option" id="option1" value={2} {...register('option' ,{required: true})} />
+                        <input type="radio" checked={choosenInput === 1 ? true : false}  name="option" id="option1" value={2} {...register('option' ,{required: true})} />
                         <img src={papPapir} alt="icon" />
                         <p>Pap og papir</p>
                     </div>
                     <div onClick={() => {
+                                                // Når der klikkes sættes dette input som valgt og checked
+                        setChoosenInput(2)
                         setIsNotChecked(false)}} className='option'>
-                    <input type="radio" checked={!isNotChecked} name="option" id="option2" value={3} {...register('option' ,{required: true})} />
+                    <input type="radio" checked={choosenInput === 2 ? true : false} name="option" id="option2" value={3} {...register('option' ,{required: true})} />
                         <img src={plast} alt="icon" />
                         <p>Plast og metal</p>
                     </div>
 
                     <div onClick={() => {
+                                                // Når der klikkes sættes dette input som valgt og checked
+                        setChoosenInput(3)
                         setIsNotChecked(false)}} className='option'>
-                    <input type="radio" checked={!isNotChecked} name="option" id="option3" value={1} {...register('option' ,{required: true})} />
+                    <input type="radio" checked={choosenInput === 3 ? true : false} name="option" id="option3" value={1} {...register('option' ,{required: true})} />
                         <img src={madaffald} alt="icon" />
                         <p>Mad og rest</p>
                     </div>
 
                     <div onClick={() => {
+                                                // Når der klikkes sættes dette input som valgt og checked
+                        setChoosenInput(4)
                         setIsNotChecked(false)}} className='option'>
-                    <input type="radio" checked={!isNotChecked} name="option" id="option4" value={4} {...register('option' ,{required: true})} />
+                    <input type="radio" checked={choosenInput === 4 ? true : false} name="option" id="option4" value={4} {...register('option' ,{required: true})} />
                         <img src={farligt} alt="icon" />
                         <p>Farligt</p>
                     </div>
 
                 </article>
                 {errors.option && <span>Du skal vælge en</span>}
-                <button disabled={isNotChecked} onClick={() => setProgress(2)}>Videre</button>
+                <button disabled={isNotChecked} onClick={(e) => {
+                    // Forhindre at formen bliver sendt afsted før tid
+                    e.preventDefault()
+
+                    //Sætter progress hooket til trin 2
+                    setProgress(2)}}>Videre</button>
             </section>
             
              <section style={{display: `${progress === 2 ? 'block' : 'none'}`}} className='formSecTwo'>
@@ -124,7 +138,10 @@ if (error) {
                             {errors.phone && <span>Du skal skrive dit telefon nummer</span>}
 
                         <button type="submit">Send</button>
-                        <button onClick={() => setProgress(1)}>Tilbage</button>                        
+                        <button onClick={(e) => {
+                            // Forhindre at formen bliver sendt afsted før tid
+                            e.preventDefault()
+                            setProgress(1)}}>Tilbage</button>                        
                     
             </section>
 

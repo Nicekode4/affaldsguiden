@@ -10,7 +10,8 @@ justify-items: center;
     margin-top: 20vh;
     margin-bottom: 20vh;
     display: grid;
-grid-template-columns: repeat(${props => props.isDetail != 0 ? 3 : 1}, 1fr);
+    //Hvis isDetail er false skal grid kun være en column ellers skal den være 3 columns
+grid-template-columns: repeat(${props => props.isDetail ? 3 : 1}, 1fr);
 justify-items: center;   
 }
 `
