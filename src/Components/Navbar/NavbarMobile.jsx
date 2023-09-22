@@ -4,61 +4,63 @@ import loggedIn from '../../Images/Layout/icon-unlock.svg'
 import styled from "styled-components";
 
 // Min styled components inline styling
-export const NavbarStyle = styled.div`
-    button{
-        display: none;
+export const NavbarMobileStyle = styled.div`
+
+height: auto;
+button{
+    margin-bottom: 2vh;
+    margin-left: 45%;
+    width: 10vw;
+    background-color: #ffffff00;
+    border: none;
+    hr{
+        margin: 0.1vh 0vw;
+        height: 1vh;
+        background-color: black;
     }
-    .active{
+}
+.active{
     color: #6DA830;
     border-top: 1px solid #6DA830;
-    margin-top: 1vh;
-    padding-top: 2vh;
 }
-    nav{
-    height: 100%;
+nav{
+    width: 100%;
+    height: auto;
     ul{
-
-        height: 100%;
-        width: 90%;
-        margin-left: 10%;
         display: grid;
-        grid-template-columns: repeat(4, 1fr) 35%;
+        grid-template-columns: repeat(1, 1fr);
         list-style: none;
-        
+        text-align: center;
         li{
-            margin-top: 7vh;
-            font-size: 18px;
+            margin-top: 1vh;
             a{
                 text-decoration: none;
                 color: #232F44;
             }
         }
     }
-} 
+}
 
 .login{
-    margin-top: 6vh;
-    height: 5vh;
-    margin-left: 20vw;
-    width: 2.5vw;
+    margin: 5vh 45%;
+    height: 8vh;
+    width: fit-content;
     border-radius: 50px;
     background-color: #D8EADB;
     a{
         border: none;
           img{
-            padding: 0;
-            padding-top: 1vh;
         width: auto;
-        height: 3vh;
+        height: 5vh;
     }  
     }
 
 }
 `
 
-function Navbar() {
+function NavbarMobile() {
   return (
-    <NavbarStyle>
+    <NavbarMobileStyle>
              
 
             <nav>    
@@ -79,9 +81,9 @@ function Navbar() {
             </nav>
             
             
-    </NavbarStyle>
+    </NavbarMobileStyle>
 
   )
 }
 
-export default Navbar
+export default NavbarMobile
