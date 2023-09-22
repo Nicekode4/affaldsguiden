@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { LoginStyle } from './Login.style'
 import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
+import logo from '../../Images/Layout/logo.svg'
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -14,7 +15,7 @@ function Login() {
   }, [])
   
 
-
+// Fjerner login session fra supabase og lokalt i session storage
   async function signOut() {
     const { error } = await supabase.auth.signOut()
     sessionStorage.removeItem('user')
@@ -26,6 +27,7 @@ function Login() {
     }
   }
 
+  // Checker om brugeren har adgang med de givne informationer
   async function signInWithEmail(email,pass) {
     const { error } = await supabase.auth.signInWithPassword({
       email: email,
@@ -45,7 +47,7 @@ let { data: user, error } = await supabase
   if (error) {
     console.log(error);
   }
-console.log(user);
+// Hvis oplysningerne er korrekte men brugeren ikke længere er aktiv vil brugeren blive logget ud med det samme og vist en besked om at brugere er banned
   if (user[0].is_active === 1) {
     sessionStorage.setItem('user', JSON.stringify(user))
     setLoggedIn(true)
@@ -56,24 +58,36 @@ console.log(user);
     }
   }
   const submitForm = (data) => {
-    console.log('Brugernavn: ', data.username);
-    console.log('Password: ', data.password);
     signInWithEmail(data.username, data.password)
   }
-console.log(JSON.parse(sessionStorage.getItem('user')) || 'No user in sessionstorage')
   return (
     <LoginStyle>
-            {!loggedIn ? <form onSubmit={handleSubmit(submitForm)}>
-              <label htmlFor="username">Brugernavn</label>
-              <input type="text" name="username" id='username' {...register('username', {required: true})}/>
+            {!loggedIn ? <>
+            <div>
+
+            
+              <div className='logoDiv'>
+           <img src={logo} alt="Logo" />  
+           <p>Affaldsguiden</p> 
+      </div>
+      <p>Log ind på Affaldsguiden
+for at anmelde stationer</p>
+      </div>      
+            <form onSubmit={handleSubmit(submitForm)}>
+              <h1>Log ind</h1>
+              <label  htmlFor="username">Brugernavn</label>
+              <input type="text" name="username" id='username' placeholder='Email' {...register('username', {required: true})}/>
               <label htmlFor="password">Kodeord</label>
-              <input type="password" id='password' name="password" {...register('password', {required: true})} />
+              <input type="password" id='password' name="password" placeholder='Password' {...register('password', {required: true})} />
               {errors.username && <span>Brugernavn skal udfyldes!</span>}
               {errors.password && <span>Kodeord skal udfyldes!</span>}
               {<span style={{display: 'none'}} id='loginError'>Kodeord og Brugernavn findes ikke eller er forkert</span>}
               {<span style={{display: 'none'}} id='banned'>Din konto er bandlyst!</span>}
               <button type='submit'>Login</button>
-            </form> : <><p>Logged in as {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p><button onClick={() => signOut()}>Log ud</button></>}
+            </form> 
+            </>
+            : 
+            <><p>Du er logged ind som {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p> <button style={{marginLeft: '-1%'}} onClick={() => signOut()}>Log ud</button></>}
     </LoginStyle>
   )
 }
