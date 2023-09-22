@@ -44,7 +44,8 @@ if (error) {
     }
 
     const submitForm = (data) => {
-        orderContainer(data.option,data.name,data.address,data.zipcode,data.city,data.email,data.phone)
+        console.log(data);
+        orderContainer(choosenInput,data.name,data.address,data.zipcode,data.city,data.email,data.phone)
     }
 
   return (
@@ -61,26 +62,26 @@ if (error) {
                 <article className='choiceArt'>
                     <div onClick={() => {
                         // Når der klikkes sættes dette input som valgt og checked
-                        setChoosenInput(1)
+                        setChoosenInput(2)
                         setIsNotChecked(false)}} className='option'>
-                        <input type="radio" checked={choosenInput === 1 ? true : false}  name="option" id="option1" value={2} {...register('option' ,{required: true})} />
+                        <input type="radio" checked={choosenInput === 2 ? true : false}  name="option" id="option1" value={2} {...register('option' ,{required: true})} />
                         <img src={papPapir} alt="icon" />
                         <p>Pap og papir</p>
                     </div>
                     <div onClick={() => {
                                                 // Når der klikkes sættes dette input som valgt og checked
-                        setChoosenInput(2)
+                        setChoosenInput(3)
                         setIsNotChecked(false)}} className='option'>
-                    <input type="radio" checked={choosenInput === 2 ? true : false} name="option" id="option2" value={3} {...register('option' ,{required: true})} />
+                    <input type="radio" checked={choosenInput === 3 ? true : false} name="option" id="option2" value={3} {...register('option' ,{required: true})} />
                         <img src={plast} alt="icon" />
                         <p>Plast og metal</p>
                     </div>
 
                     <div onClick={() => {
                                                 // Når der klikkes sættes dette input som valgt og checked
-                        setChoosenInput(3)
+                        setChoosenInput(1)
                         setIsNotChecked(false)}} className='option'>
-                    <input type="radio" checked={choosenInput === 3 ? true : false} name="option" id="option3" value={1} {...register('option' ,{required: true})} />
+                    <input type="radio" checked={choosenInput === 1 ? true : false} name="option" id="option3" value={1} {...register('option' ,{required: true})} />
                         <img src={madaffald} alt="icon" />
                         <p>Mad og rest</p>
                     </div>
