@@ -14,6 +14,9 @@ function Review({data}) {
     const [reveiws, setReveiws] = useState([])
     const [names, setNames] = useState([])
 
+    const day = String(new Date().getDate()).padStart(2,"0");
+    const month = String(new Date().getMonth()+1).padStart(2,"0");
+    const year = new Date().getFullYear();
     // useForm hooket
     const { register, handleSubmit, formState: { errors } } = useForm() 
 
@@ -30,7 +33,7 @@ function Review({data}) {
             "subject": formData.subject, 
             "comment": formData.message,
             "num_stars": ratingNum,
-            "date": "2023-09-19",
+            "date": `${year}-${month}-${day}`,
             "org_id": data.id,
             "user_id": JSON.parse(sessionStorage.getItem('user'))[0].id || 0,
             "is_active": JSON.parse(sessionStorage.getItem('user'))[0].is_active || 0
