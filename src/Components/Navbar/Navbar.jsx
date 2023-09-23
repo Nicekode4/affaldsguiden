@@ -19,14 +19,15 @@ export const NavbarStyle = styled.div`
     ul{
 
         height: 100%;
-        width: 90%;
-        margin-left: 10%;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr) 35%;
+        width: 100%;
+        margin-left: 8%;
+        display: flex;
+        
         list-style: none;
         
         li{
             margin-top: 7vh;
+            margin-right: 5vw;
             font-size: 18px;
             a{
                 text-decoration: none;
@@ -39,14 +40,14 @@ export const NavbarStyle = styled.div`
 .login{
     margin-top: 6vh;
     height: 5vh;
-    margin-left: 20vw;
+    margin-left: 15vw;
     width: 2.5vw;
     border-radius: 50px;
     background-color: #D8EADB;
     a{
         border: none;
           img{
-            padding: 0;
+            padding: 1vh 0.7vw;
             padding-top: 1vh;
         width: auto;
         height: 3vh;
