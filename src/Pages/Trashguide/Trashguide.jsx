@@ -11,7 +11,7 @@ import TrashguideItem from '../../Components/TrashguideItem/TrashguideItem'
 function Trashguide() {
     const url = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/section?select=*'
     const [categories, setCategories] = useState([])
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState()
     const [selectedId, setSelectedId] = useState([])
     const [selectedIndex, setSelectedIndex] = useState([])
 
@@ -39,6 +39,7 @@ let { data: category, error } = await supabase
 if (error) {
     console.log('error while fetching category: ', error);
 }else{
+    console.log(category);
    setItems(category) 
 }
 
