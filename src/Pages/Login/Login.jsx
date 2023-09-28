@@ -3,10 +3,15 @@ import { LoginStyle } from './Login.style'
 import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
 import logo from '../../Images/Layout/logo.svg'
+import eye from '../../Images/Layout/check-circle.svg'
 
 function Login() {
+  const guestEmail = 'admin@kode4.dk'
+  const guestPass = 'password'
   const { register, handleSubmit, formState: { errors } } = useForm()
   const [loggedIn, setLoggedIn] = useState(false)
+  const [showPass, setShowPass] = useState(false)
+
 
   useEffect(() => {
   if (sessionStorage.getItem('user')) {
@@ -78,12 +83,19 @@ for at anmelde stationer</p>
               <label  htmlFor="username">Brugernavn</label>
               <input type="text" name="username" id='username' placeholder='Email' {...register('username', {required: true})}/>
               <label htmlFor="password">Kodeord</label>
-              <input type="password" id='password' name="password" placeholder='Password' {...register('password', {required: true})} />
+              <div className='passwordDiv'>
+              <input type={showPass ? 'text' : 'password'} id='password' name="password" placeholder='Password' {...register('password', {required: true})} />
+              <img onClick={() => {showPass ? setShowPass(false) : setShowPass(true)}} src={eye} alt="" />
+              </div>
               {errors.username && <span>Brugernavn skal udfyldes!</span>}
               {errors.password && <span>Kodeord skal udfyldes!</span>}
               {<span style={{display: 'none'}} id='loginError'>Kodeord og Brugernavn findes ikke eller er forkert</span>}
               {<span style={{display: 'none'}} id='banned'>Din konto er bandlyst!</span>}
-              <button type='submit'>Login</button>
+              <div className='btnDiv'>
+                              <button type='submit'>Login</button>
+              <button onClick={() => signInWithEmail(guestEmail, guestPass)}>Login som gæst</button>
+              </div>
+
             </form> 
             </>
             : 
