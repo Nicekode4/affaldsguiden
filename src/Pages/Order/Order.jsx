@@ -57,7 +57,7 @@ if (error) {
             <section style={{display: `${progress === 1 ? 'block' : 'none'}`}} className='formSecOne'>
                 <p className='progressP'>Trin 1</p>
                 <p className='title'>Vælg type</p>
-                <p className='text'>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+                <p className='text'>For at bestille din affaldsbeholder, bedes du udfylde nedenstående information. Vi vil bestræbe os på at behandle din bestilling hurtigst muligt. </p>
 
                 <article className='choiceArt'>
                     <div onClick={() => {
@@ -108,7 +108,8 @@ if (error) {
              <section style={{display: `${progress === 2 ? 'block' : 'none'}`}} className='formSecTwo'>
                 <p className='progressP'>Trin 2</p>
                 <p className='title'>Hvor skal den leveres?</p>
-                <p className='text'>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+                <p className='text'>For at sikre en god levering af din affaldsbeholder, bedes du angive leveringsadressen nedenfor.</p>
+                {/* <p className='text'>Vær opmærksom på at vi sender med Post Nord, så din affaldscontainer vil tidligst være fremme i Oktober 2203. Tak for din tålmodighed.</p> */}
                 
                     {errors.firstname && <span>Du skal skrive dit fornavn</span>}
                         <label htmlFor="name">Navn </label>
