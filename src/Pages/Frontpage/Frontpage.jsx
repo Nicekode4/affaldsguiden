@@ -61,7 +61,7 @@ function Frontpage() {
               <img src={require('../../Images/FrontpageImg2.png')} alt="Image of trashcan" />
               <article>
                 <h2>Bestil <strong>din</strong> <strong>nye</strong> <strong>affaldsbeholder</strong></h2>
-                <p>when an unknown printer took a galley of type and scramble it to make a type specimen book. It has survived not only</p>
+                <p>De nye affaldsbeholdere er designet med både funktionalitet og æstetik for øje, hvilket gør den til den perfekte tilføjelse til dit hjem. Med dens robuste konstruktion og stilfulde udseende kan du nu håndtere affaldet på en praktisk og elegant måde.</p>
                 <button onClick={() => navigate('/order')}>Bestil nu</button>
               </article>
 
