@@ -42,6 +42,8 @@ width: auto;
     border: none;
     border-radius: 8px;
     height: 30vh;
+    overflow: hidden;
+    pointer-events: none;
 width: 25vw;
 }
 

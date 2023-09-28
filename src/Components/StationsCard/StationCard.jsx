@@ -33,7 +33,7 @@ if (review.length > 0) {
     return (
     <StationCardStyle>
             <div className="gmap_canvas">
-            <iframe title='googlemap' src={`https://maps.google.com/maps?q=${data.longtitude},${data.latitude}&z=14&output=embed`} 
+            <iframe title='googlemap' src={`https://maps.google.com/maps?q=${data.longtitude},${data.latitude}&z=13&output=embed`} 
 ></iframe>
         </div>
     
@@ -47,9 +47,9 @@ if (review.length > 0) {
                 // Hvis num er større end værdien i avgRating hooket, så bliver stjernen grå 
                 [1,2,3,4,5].map((num) =>{
                     if (num > avgRating) {
-                        return <img src={starGrey} alt="Grey star" />
+                        return <img key={num} src={starGrey} alt="Grey star" />
                     }else{
-                        return <img src={starGold} alt="Gold star" />
+                        return <img key={num} src={starGold} alt="Gold star" />
                     }
                 })
             }
