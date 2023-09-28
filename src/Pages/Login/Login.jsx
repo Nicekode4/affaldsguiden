@@ -73,7 +73,7 @@ let { data: user, error } = await supabase
             
               <div className='logoDiv'>
            <img src={logo} alt="Logo" />  
-           <p>Affaldsguiden</p> 
+           <p style={{fontWeight: '600', marginBottom: '1vh'}}>Affaldsguiden</p> 
       </div>
       <p>Log ind på Affaldsguiden
 for at anmelde stationer</p>
@@ -99,7 +99,10 @@ for at anmelde stationer</p>
             </form> 
             </>
             : 
-            <><p>Du er logged ind som {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p> <button style={{marginLeft: '-1%'}} onClick={() => signOut()}>Log ud</button></>}
+             <div className='loggedInDiv'>
+              <p>Du er logged ind som {JSON.parse(sessionStorage.getItem('user'))[0].firstname || 'ukendt'}</p> 
+              <button style={{marginLeft: '-1%'}} onClick={() => signOut()}>Log ud</button>
+              </div>}
     </LoginStyle>
   )
 }

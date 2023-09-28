@@ -9,12 +9,12 @@ justify-items: center;
 .passwordDiv{
     margin-top: 2vh;
     display: grid;
-    grid-template-columns: 85% 10%;
+    grid-template-columns: 80% 10%;
     border: 1px solid #DCDBDD;
     width: 25vw;
     border-radius: 12px;
     padding: 3vh 3vw;
-    
+    padding-top: 0;
     margin-left: 5%;
     margin-bottom: 2vh;
     font-size: 14px;
@@ -23,6 +23,7 @@ justify-items: center;
     img{
         margin: 0;
         margin-left: 2vw;
+        margin-top: 1.5vh;
         
 padding: 0;
 border: 0;
@@ -32,8 +33,7 @@ width: 100%;
 
     input{
         margin: 0;
-padding: 0;
-padding-left: 0vw;
+padding: 1vh 0vw;
 border: 0;
 width: 100%;
 height: 100%;
@@ -46,12 +46,15 @@ span{
 }
 p{
     text-align: center;
+    width: 100%;
+    font-size: 20px;
 }
 img{
-    padding-left: 10vw;
+    padding-left: 45vw;
 }
 h1{    
-    margin: 2vh 5%
+    margin: 2vh 5%;
+    text-align: center;
 
 }
 form{
@@ -81,7 +84,17 @@ button{
     width: 70%;
     height: fit-content;
 }
-
+.loggedInDiv{
+    height: fit-content;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    p{
+        margin: 0;
+        padding: 0;
+    }
+}
 @media screen and (min-width: 768px) {
 
     margin: 2vh 2vw;
@@ -129,6 +142,9 @@ outline: none;
         margin-left: 7vw;
         margin-bottom: 5vh;
         margin-top: 30vh;
+        img{
+            padding-left: 10vw;
+        }
           p{
     text-align: center;  
       padding: 0;
@@ -139,8 +155,6 @@ outline: none;
 
     width: 30%;
 }
-img{
-}  
 
 }
 p{
@@ -153,7 +167,8 @@ span{
     text-align: center;
 }
 h1{    
-    margin: 2vh 10%
+    margin: 2vh 10%;
+    text-align: left;
 
 }
 form{
@@ -203,6 +218,19 @@ button{
     width: 50%;
     height: fit-content;
 }  
+}
+.loggedInDiv{
+    margin-left: 65%;
+    margin-top: 30%;
+    height: fit-content;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    p{
+        margin: 0;
+        padding: 0;
+    }
 }
 }
 `
