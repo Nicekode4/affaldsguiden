@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import loggedIn from '../../Images/Layout/icon-unlock.svg'
 import styled from "styled-components";
-
 // Min styled components inline styling
 export const NavbarStyle = styled.div`
     button{
@@ -55,14 +54,50 @@ export const NavbarStyle = styled.div`
     }
 
 }
+
+.loginActive{
+    margin-top: 6vh;
+    height: 5vh;
+    margin-left: 15vw;
+    width: 2.5vw;
+    border-radius: 50px;
+    background-color: #ead8d8;
+    a{
+        border: none;
+          img{
+            padding: 1vh 0.7vw;
+            padding-top: 1vh;
+        width: auto;
+        height: 3vh;
+    }  
+    }
+
+}
 `
 
 function Navbar() {
+const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+useEffect(() => {
+    const interval = setInterval(() => {
+       if (sessionStorage.getItem('user')) {
+           setIsLoggedIn(true)
+       }else{
+           setIsLoggedIn(false)
+       }
+     }, 30000);
+   
+     return () => {
+       clearInterval(interval)
+     }
+   }, [])
+
   return (
     <NavbarStyle>
              
 
-            <nav>    
+            <nav> 
+  
                 {/* ternary operator til at gemme knappen når der klikkes på den         */}
             <button onClick={() => document.getElementById('navElements').style.display === 'none' ?  document.getElementById('navElements').style.display = 'block' : document.getElementById('navElements').style.display = 'none'}>
                 <hr />
@@ -75,7 +110,7 @@ function Navbar() {
                     <li><NavLink to={'/sorting'}>Sotering</NavLink></li>
                     <li><NavLink to={'/stations'}>Genbrugsstationer</NavLink></li>
                     <li><NavLink to={'/order'}>Bestil beholder</NavLink></li>
-                    <li className='login' ><NavLink to={'/login'}> <img src={loggedIn} alt="Lock" /></NavLink></li>
+                    <li className={isLoggedIn ? 'loginActive' : 'login'} ><NavLink to={'/login'}> <img src={loggedIn} alt="Lock" /></NavLink></li>
                 </ul>
             </nav>
             

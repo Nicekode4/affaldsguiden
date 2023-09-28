@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import loggedIn from '../../Images/Layout/icon-unlock.svg'
 import styled from "styled-components";
@@ -56,9 +56,38 @@ nav{
     }
 
 }
+
+.loginActive{
+    margin: 5vh 45%;
+    height: 8vh;
+    width: fit-content;
+    border-radius: 50px;
+    background-color: #ead8d8;
+    a{
+        border: none;
+          img{
+        width: auto;
+        height: 5vh;
+    }  
+    }
+}
 `
 
 function NavbarMobile() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => {
+     const interval = setInterval(() => {
+        if (sessionStorage.getItem('user')) {
+            setIsLoggedIn(true)
+        }else{
+            setIsLoggedIn(false)
+        }
+      }, 30000);
+    
+      return () => {
+        clearInterval(interval)
+      }
+    }, [])
   return (
     <NavbarMobileStyle>
              
@@ -76,7 +105,7 @@ function NavbarMobile() {
                     <li><NavLink to={'/sorting'}>Sotering</NavLink></li>
                     <li><NavLink to={'/stations'}>Genbrugsstationer</NavLink></li>
                     <li><NavLink to={'/order'}>Bestil beholder</NavLink></li>
-                    <li className='login' ><NavLink to={'/login'}> <img src={loggedIn} alt="Lock" /></NavLink></li>
+                    <li className={isLoggedIn ? 'loginActive' : 'login'} ><NavLink to={'/login'}> <img src={loggedIn} alt="Lock" /></NavLink></li>
                 </ul>
             </nav>
             
