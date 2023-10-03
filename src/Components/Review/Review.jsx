@@ -13,6 +13,7 @@ function Review({data}) {
     const namesUrl = 'https://haqfhdjzvotveqhuioyh.supabase.co/rest/v1/user?select=id,firstname'
     const [reveiws, setReveiws] = useState([])
     const [names, setNames] = useState([])
+    const [noComment, setNoComment] = useState()
 
     const day = String(new Date().getDate()).padStart(2,"0");
     const month = String(new Date().getMonth()+1).padStart(2,"0");
@@ -50,21 +51,28 @@ function Review({data}) {
         })
     }
     useEffect(() => {
-        // axios GET kald
-        axios.get(reviewUrl, {
-            headers: {
-              'apiKey': `${supabase.supabaseKey}`
-            }
-          }).catch(error => {
-            console.log("get error: ", error);
-        })
-        .then((response) => {
-            setReveiws(response.data)
-        })
+        // axios GET kald¨
+        async function getReviws() {
+            
+let { data: review, error } = await supabase
+.from('review')
+.select('*')
+.eq('org_id', data.id)
 
+console.log(review);
+setReveiws(review)
+if (review.length === 0) {
+    setNoComment('Denne station er ikke blevet anmeldt endnu')
+}
+
+if (error) {
+  console.log('error getting reviws: ',error);  
+}
+        }
         axios.get(namesUrl, {
             headers: {
-              'apiKey': `${supabase.supabaseKey}`
+              'apiKey': `${supabase.supabaseKey}`,
+              
             }
           }).catch(error => {
             console.log("get error: ", error);
@@ -72,6 +80,7 @@ function Review({data}) {
         .then((response) => {
             setNames(response.data)
         })
+        getReviws()
     }, [])
   return (
     <ReviewStyle>
@@ -114,28 +123,34 @@ function Review({data}) {
     {
         reveiws.map((item) => (
             <>
-            <div>
-                           <li>{
-                            // Tjekker efter et match på personen der har kommenteret og listen af brugernavne. finder den et, vises navnet
-                            names.map((name) => {
-                                if (item.user_id == name.id) {
-                                    return name.firstname || 'Anon'
-                                }else{
-                                    return false
-                                }
-                            })
-                            }</li>                            
-                <li>{item.date}</li>
- 
-<li>{item.comment}</li>
-            </div>
+                <div key={item.id}>
+                               <li>{
+                                // Tjekker efter et match på personen der har kommenteret og listen af brugernavne. finder den et, vises navnet
+                                names.map((name) => {
+                                    if (item.user_id == name.id) {
+                                        return name.firstname || 'Anon'
+                                    }else{
+                                        
+                                        return null
+                                        
+                                    }
+                                })
+                                }</li>                            
+                    <li>{item.date}</li>
+     
+    <li>{item.comment}</li>
+    
+                </div>
+    
+                </>
+        )
+            
 
-            </>
 
-
-        ))
+        )
     }
 </ul>
+<h2>{noComment}</h2>
     </ReviewStyle>
   )
 }
