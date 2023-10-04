@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginStyle = styled.section`
+export const SignUpStyle = styled.section`
 margin: 10vh 2vw;
 height: auto;
 display: grid;
@@ -50,7 +50,7 @@ p{
     font-size: 20px;
 }
 img{
-    padding-left: 45vw;
+    padding-left: 40vw;
 }
 h1{    
     margin: 2vh 5%;
@@ -68,6 +68,7 @@ input{
     margin-left: 5%;
     font-size: 14px;
     width: 90%;
+    margin-bottom: 2vh;
 }
 input::placeholder{
     color: #84818A;
@@ -90,16 +91,20 @@ a{
     color: white;
     background-color: #114D46;
     border: none;
-    font-size: 13px;
-    text-align: center;
     padding: 2vh 1vw;
     border-radius: 6px;
-    margin-left: 15%;
+    margin-left: 25%;
     margin-top: 2vh;
-    width: 67%;
+    width: 50%;
     height: fit-content;
 } 
 
+.logoDiv{
+img{
+    padding-left: 37vw;
+}
+
+}
 .loggedInDiv{
     height: fit-content;
     width: 60%;
@@ -114,7 +119,7 @@ a{
 @media screen and (min-width: 768px) {
 
     margin: 2vh 2vw;
-    height: 90vh;
+    height: auto;
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 justify-items: start;
@@ -126,9 +131,10 @@ justify-items: start;
     width: 25vw;
     border-radius: 12px;
     padding: 3vh 3vw;
-    
+    margin-top: 0;
     margin-left: 5%;
     margin-bottom: 2vh;
+    padding-bottom: 2vh;
     font-size: 14px;
     width: 90%;
     height: max-content;
@@ -157,10 +163,10 @@ outline: none;
         display: flex;
         margin-left: 7vw;
         margin-bottom: 5vh;
-        margin-top: 30vh;
+        margin-top: 40vh;
         img{
             padding-left: 10vw;
-            padding-right: 1vw;
+            margin-right: 1vw;
         }
           p{
     text-align: center;  
@@ -226,10 +232,9 @@ a{
     border: none;
     padding: 2vh 1vw;
     border-radius: 6px;
-    margin-left: 4vw;
-    font-size: 13px;
+    margin-left: 25%;
     margin-top: 2vh;
-    width: 85%;
+    width: 50%;
     height: fit-content;
 } 
 .btnDiv{

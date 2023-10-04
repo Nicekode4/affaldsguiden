@@ -6,6 +6,7 @@ import Trashguide from '../Pages/Trashguide/Trashguide'
 import Stations from '../Pages/Stations/Stations'
 import NotFound from '../Pages/NotFound/NotFound'
 import Order from '../Pages/Order/Order'
+import SignUp from '../Pages/SignUp/SignUp'
 
 function Approuter() {
   return (
@@ -16,6 +17,7 @@ function Approuter() {
         <Route path='/stations' element={<Stations />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/order' element={<Order />}/>
+        <Route path='/signup' element={<SignUp />}/>
         <Route path='*' element={<NotFound/>}/>
     </Routes>
   )

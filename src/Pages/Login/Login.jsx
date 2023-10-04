@@ -4,6 +4,7 @@ import supabase from '../../supabase.js'
 import { useForm } from "react-hook-form"
 import logo from '../../Images/Layout/logo.svg'
 import eye from '../../Images/Layout/check-circle.svg'
+import { NavLink } from 'react-router-dom'
 
 function Login() {
   const guestEmail = 'admin@kode4.dk'
@@ -94,8 +95,9 @@ for at anmelde stationer</p>
               <div className='btnDiv'>
                               <button type='submit'>Login</button>
               <button onClick={() => signInWithEmail(guestEmail, guestPass)}>Login som gæst</button>
+              
               </div>
-
+<NavLink to={'/signup'}>Opret en ny bruger</NavLink>
             </form> 
             </>
             : 
