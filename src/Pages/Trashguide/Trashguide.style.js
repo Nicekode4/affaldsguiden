@@ -77,9 +77,13 @@ margin-left: 25%;
 margin-bottom: 20vh;
     border-radius: 50px;
     padding: 2vh 2vw;
+    form{
+    display: flex;
+  justify-content: space-between;
+  }
     input{
         border: none;
-        padding-left: 1vw;
+        padding-left: 0vw;
         width: 35vw;
     }
     input::placeholder{
@@ -89,6 +93,7 @@ margin-bottom: 20vh;
     button{
         border: none;
         margin-left: 10%;
+        margin-right: 0;
     }
 }
 
