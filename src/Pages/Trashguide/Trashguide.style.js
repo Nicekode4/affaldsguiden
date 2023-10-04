@@ -12,26 +12,35 @@ h1{
     }
 }
 
-.searchSec{
-width: 75%;
-box-shadow: -1px 9px 35px 0px rgba(0,0,0,0.41);
-margin: 2vh 0vw;
-margin-left: 10%;
-    border-radius: 50px;
-    padding: 2vh 2vw;
-    input{
-        border: none;
-        padding-left: 2vh;
-    }
-    input::placeholder{
-        color: black;
-    }
+.searchSec {
+  width: 75%;
+  box-shadow: -1px 9px 35px 0px rgba(0, 0, 0, 0.41);
+  margin: 2vh 0vw;
+  margin-left: 10%;
+  border-radius: 50px;
+  padding: 2vh 2vw;
 
-    button{
-        border: none;
-        margin-left: 20%;
-    }
+  form{
+    display: flex;
+  justify-content: space-between;
+  }
+  input {
+    border: none;
+    padding-left: 2vh;
+    width: 90%;
+    
+  }
+
+  input::placeholder {
+    color: black;
+  }
+
+  button {
+    border: none;
+    margin-right: 5vw;
+  }
 }
+
 
 .titleArt{
     display: grid;
